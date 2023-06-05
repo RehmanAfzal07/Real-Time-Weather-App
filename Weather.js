@@ -49,7 +49,7 @@ const Weather = () => {
       <View style={styles.searchContainer}>
         <TextInput
           style={styles.input}
-          placeholder="Enter city"
+          placeholder="Enter City Name ..."
           value={searchCity}
           onChangeText={setSearchCity}
         />
