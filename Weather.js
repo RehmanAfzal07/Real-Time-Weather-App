@@ -20,6 +20,7 @@ const Weather = () => {
       );
       if (response.status === 200) {
         const data = await response.json();
+        console.log(data)
         setWeatherData(data);
       } else {
         setWeatherData(null);
@@ -32,6 +33,7 @@ const Weather = () => {
       setLoaded(true);
     }
   };
+
 
   const handleSearch = () => {
     if (searchCity.trim() !== '') {
@@ -53,7 +55,8 @@ const Weather = () => {
           value={searchCity}
           onChangeText={setSearchCity}
         />
-        <Button title="Search" onPress={handleSearch} />
+        <Button  title="Search" 
+        onPress={handleSearch} />
       </View>
       <WeatherInfo fetchWeatherData={fetchWeatherData} weatherData={weatherData} />
     </SafeAreaView>
@@ -63,17 +66,19 @@ const Weather = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f0f0f0',
     margin:10,
+    zIndex:10,
+    marginTop:10,
   },
   header: {
-    backgroundColor: 'rgba(133,204,133,0.9)',
+    backgroundColor: '#13547a',
     alignItems: 'center',
     justifyContent: 'center',
-    height: 40,
+    height: 60,
     borderRadius:30,
-    margin:15,
-    padding:5,
+    margin:5,
+    padding:2,
+    elevation:10,
   },
   headerTitle: {
     fontSize: 22,
@@ -85,16 +90,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 20,
     marginBottom: 10,
+    marginTop:10,
   },
   input: {
     flex: 1,
+    color:"#000",
     height: 40,
-    borderWidth: 1.3,
-    borderColor: 'green',
+    borderWidth: 1,
+    borderColor: '#13547a',
     borderRadius: 5,
     marginRight: 10,
     paddingHorizontal: 10,
   },
+  
 
 });
 

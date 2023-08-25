@@ -38,14 +38,16 @@ const WeatherInfo = ({ fetchWeatherData, weatherData,icon }) => {
 <View>
 <View style={{ alignItems: "center" }}>
         <Text style={styles.title}>{name}</Text>
+        
       </View>
       <View style={styles.logo}>
-        <Image source={{ uri: `http:openweathermap.org/img/wn/${icon}.png` }} />
+      <Image source={{ uri: imageUrl }} style={styles.apiImage} />
+        {/* <Image source={{ uri: `http:openweathermap.org/img/wn/${icon}.png` }} /> */}
         <Text style={styles.currentTemp}>{Math.round(main.temp-273)}°C</Text>
         <Image style={styles.largeIcon} source={require("./assets/temp.png")} />
       </View>
-      <Text style={styles.description}>Description</Text>
-
+      <Text style={styles.description}>{weather[0].description.toLowerCase()}</Text>
+          
       <View
         style={{
           flexDirection: "row",
@@ -144,6 +146,7 @@ const WeatherInfo = ({ fetchWeatherData, weatherData,icon }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColo:"#000",
     marginTop: 25,
   },
   title: {
@@ -151,14 +154,20 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontWeight: "bold",
     fontSize: 36,
-    backgroundColor: 'rgba(133,204,133,0.9)',
-    color: "#f4f4f4",
+    backgroundColor: '#fff',
+    color: "#000",
     marginTop: 10,
+    elevation:20,
+    margin:10
   },
   logo: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-around",
+  },
+  apiImage: {
+    width: 50,
+    height: 50,
   },
   largeIcon: {
     width: 80,
@@ -171,18 +180,20 @@ const styles = StyleSheet.create({
   },
   description: {
     textAlign: "center",
-    fontSize: 32,
-    marginBottom: 10,
+    fontSize: 26,
+    marginBottom: 5,
   },
   extraInfo: {
     flexDirection: "row",
     padding: 10,
+    margin:1,
   },
   info: {
     width: 120,
-    backgroundColor: 'rgba(133,204,133,0.9)',
+    backgroundColor:"#13547a",
     padding: 4,
     alignItems: "center",
+    elevation:20,
   },
   smallIcon: {
     height: 35,

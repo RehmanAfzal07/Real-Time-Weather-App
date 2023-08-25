@@ -6,7 +6,7 @@ const Button = ({ onPress, title }) => {
     <TouchableHighlight
       style={styles.button}
       onPress={onPress}
-      underlayColor="#ccffaa"
+     
     >
       <Text style={styles.buttonText}>{title}</Text>
     </TouchableHighlight>
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   button: {
-    backgroundColor: '#459169',
+    backgroundColor: '#13547a',
     padding: 10,
     borderRadius: 5,
     alignItems: 'center',
